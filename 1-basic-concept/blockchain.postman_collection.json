@@ -1,0 +1,515 @@
+{
+	"info": {
+		"_postman_id": "105098df-a0a4-4a67-8ea2-488340fe682f",
+		"name": "blockchain",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33839116"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/blockchain",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"blockchain"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/transactions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.1"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 05 Jan 2025 04:26:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "427"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"chain\": [\n        {\n            \"hash_of_previous_block\": \"181cfa3e85f3c2a7aa9fb74f992d0d061d3e4a6d7461792413aab3f97bd3da95\",\n            \"index\": 0,\n            \"nonce\": 61093,\n            \"timestamp\": 1736051151.474358,\n            \"transactions\": []\n        },\n        {\n            \"hash_of_previous_block\": \"e4805cb5374186db437cea54a4f71a072c43d5c7b5770bb2538b33149685764a\",\n            \"index\": 1,\n            \"nonce\": 16378,\n            \"timestamp\": 1736051170.858623,\n            \"transactions\": [\n                {\n                    \"amount\": 1,\n                    \"recipient\": \"7ebd0dda8169422886a95459833472cf\",\n                    \"sender\": \"0\"\n                }\n            ]\n        }\n    ],\n    \"length\": 2\n}"
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sender\": \"b3ab827d5e1f48a4bf1a922dc5933d3e\",\n    \"recipient\": \"cdf556a33f184e8ca2f348a17a1f1b79\",\n    \"amount\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/transactions/new",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"transactions",
+						"new"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sender\": \"b3ab827d5e1f48a4bf1a922dc5933d3e\",\n    \"recipient\": \"cdf556a33f184e8ca2f348a17a1f1b79\",\n    \"amount\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/transactions/new",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transactions",
+								"new"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.1"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 05 Jan 2025 04:32:06 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Transaction will be added to Block 1\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Mine",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/mine",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"mine"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/mine",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"mine"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.1"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 05 Jan 2025 04:25:01 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "238"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"hash_of_previous_block\": \"6804ca096caf78eae5e6d87fcb5f29d367a0a6513510c6f50beecf95bde73374\",\n    \"index\": 2,\n    \"message\": \"New Block Forged\",\n    \"nonce\": 178671,\n    \"transactions\": [\n        {\n            \"amount\": 1,\n            \"recipient\": \"b629e3a0ac73480889fbaad934794e1a\",\n            \"sender\": \"0\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add nodes (5001)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nodes\": [\n        \"http://localhost:5001\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/nodes/register",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"nodes",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nodes\": [\n        \"http://127.0.0.1:5001\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/nodes/register",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"nodes",
+								"register"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.1"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 05 Jan 2025 05:12:37 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "67"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"New nodes have been added\",\n    \"nodes\": [\n        \"127.0.0.1:5001\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add nodes (5000)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nodes\": [\n        \"http://localhost:5000\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5001/nodes/register",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"nodes",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nodes\": [\n        \"http://127.0.0.1:5001\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/nodes/register",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"nodes",
+								"register"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.1"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 05 Jan 2025 05:12:37 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "67"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"New nodes have been added\",\n    \"nodes\": [\n        \"127.0.0.1:5001\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Sync nodes (5000)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/nodes/sync",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"nodes",
+						"sync"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/nodes/sync",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"nodes",
+								"sync"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.1"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 05 Jan 2025 12:38:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "233"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"chain\": [\n        {\n            \"hash_of_previous_block\": \"181cfa3e85f3c2a7aa9fb74f992d0d061d3e4a6d7461792413aab3f97bd3da95\",\n            \"index\": 0,\n            \"nonce\": 61093,\n            \"timestamp\": 1736080635.568758,\n            \"transactions\": []\n        }\n    ],\n    \"message\": \"Chain was not updated (already up-to-date)\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Sync nodes (5001)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5001/nodes/sync",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"nodes",
+						"sync"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/nodes/sync",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"nodes",
+								"sync"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.13.1"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 05 Jan 2025 12:38:28 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "233"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"chain\": [\n        {\n            \"hash_of_previous_block\": \"181cfa3e85f3c2a7aa9fb74f992d0d061d3e4a6d7461792413aab3f97bd3da95\",\n            \"index\": 0,\n            \"nonce\": 61093,\n            \"timestamp\": 1736080665.660238,\n            \"transactions\": []\n        }\n    ],\n    \"message\": \"Chain was not updated (already up-to-date)\"\n}"
+				}
+			]
+		}
+	]
+}
