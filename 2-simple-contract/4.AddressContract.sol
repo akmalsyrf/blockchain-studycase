@@ -1,30 +1,35 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract AddressContract {
-    // address = nomor rekening -> 20 bytes
-    // address payable : send and transfer
-
+// address = nomor rekening -> 20 bytes
+// address payable : send and transfer
+contract AddressContract1 {
     // cara 1
-    // address public caller;
+    address public caller;
 
-    // function getCallerAddress() public returns(address) {
-    //     caller = msg.sender;
+    function getCallerAddress() public returns(address) {
+        caller = msg.sender;
 
-    //     return caller;
-    // }
+        return caller;
+    }
+}
 
+contract AddressContract2 {
     // cara 2
-    // function getCallerAddress() public view returns(address caller) {
-    //     caller = msg.sender;
-    // }
+    function getCallerAddress() public view returns(address caller) {
+        caller = msg.sender;
+    }
+}
 
+contract AddressContract3 {
     // cara 3
     function getAddress() public view returns(address) {
         address myAddress = address(this);
         return myAddress;
     }
+}
 
+contract AddressPayable {
     // address payable
     uint receivedAmount;
     function receiveEther() payable public {
@@ -39,5 +44,4 @@ contract AddressContract {
         _address.transfer(nominal); 
         return true;
     }
-
 }
