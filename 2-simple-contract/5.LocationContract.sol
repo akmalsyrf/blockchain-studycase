@@ -9,7 +9,7 @@ pragma solidity ^0.8.0;
 contract LocationContract {
     // storage
     uint stateStorage;
-    // uint storage stateStorage2; // error
+    // uint storage stateStorage2; // error, tidak bisa menggunakan storage di luar fungsi
 
     // memory: semua yg didalam function
     function calculation(uint a, uint b) public pure returns(uint result) {
