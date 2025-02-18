@@ -64,18 +64,18 @@ module.exports = {
     // },
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
-    rinkeby: {
+    sepolia: {
       provider: () => new HDWalletProvider({
         privateKeys: private_keys,
-        providerOrUrl: `https://rinkeby.infura.io/v3/${process.env.INFURA_API_KEY}`,
+        providerOrUrl: `https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`,
         numberOfAddresses: 1
       }),
-      network_id: 4,       // Rinkeby's id
-      gas: 5500000,        // Rinkeby has a lower block limit than mainnet
-      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
-      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-    },
+      network_id: 11155111,   // Sepolia's network ID
+      gas: 5500000,           // Gas limit for Sepolia
+      confirmations: 2,       // Number of confirmations to wait between deployments
+      timeoutBlocks: 200,     // Number of blocks before a deployment times out
+      skipDryRun: true        // Skip dry run before migrations (optional)
+    }
     // Useful for private networks
     // private: {
     // provider: () => new HDWalletProvider(mnemonic, `https://network.io`),

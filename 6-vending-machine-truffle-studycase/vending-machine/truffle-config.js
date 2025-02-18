@@ -59,18 +59,18 @@ module.exports = {
     // },
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
-    rinkeby: {
+    sepolia: {
       provider: () => new HDWalletProvider({
-        privateKeys: [process.env.PRIVATE_KEY_1],
-        providerOrUrl: process.env.INFURA_API_URL,
+        privateKeys: private_keys,
+        providerOrUrl: `https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`,
         numberOfAddresses: 1
       }),
-      network_id: 4,
-      gas: 5500000,
-      confirmations: 2,
-      timeoutBlocks: 200,
-      skipDryRun: true
-    },
+      network_id: 11155111,   // Sepolia's network ID
+      gas: 5500000,           // Gas limit for Sepolia
+      confirmations: 2,       // Number of confirmations to wait between deployments
+      timeoutBlocks: 200,     // Number of blocks before a deployment times out
+      skipDryRun: true        // Skip dry run before migrations (optional)
+    }
     // ropsten: {
     // provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/YOUR-PROJECT-ID`),
     // network_id: 3,       // Ropsten's id
