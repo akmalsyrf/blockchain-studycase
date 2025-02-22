@@ -14,7 +14,6 @@ const VendingMachine = () => {
     const [web3, setWeb3] = useState(null)
     const [address, setAddress] = useState(null)
     const [vmContract, setVmContract] = useState(null)
-    const [web3, setWeb3] = useState(null)
 
     useEffect(() => {
       if (vmContract) getInventoryHandler()
@@ -40,6 +39,7 @@ const VendingMachine = () => {
         await vmContract.methods.purchase(buyCount).send({
           from: address,
           value: web3.utils.toWei('2', 'ether') * buyCount
+        })
 
         console.log("try to purchase")
         await vmContract.methods.purchase(parseInt(buyCount)).send({
